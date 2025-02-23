@@ -1,0 +1,56 @@
+create table course(courseno int primary key, coursename varchar(20) not null , maxmarks number(3) not null, pass
+marks number(3) not null);
+
+create table course(courseno int primary key, coursename varchar(20) not null , maxmarks int(3) not null, passmar
+ks int(3) not null);
+
+create table sc(rollno int references student(rollno), courseno int references course(courseno), marks int(5) not null);
+
+INSERT INTO student (rollno, name, class, birthdate) VALUES (101, 'Alice Johnson', '10A', '2008-05-14');
+INSERT INTO student (rollno, name, class, birthdate) VALUES (102, 'Bob Smith', '10B', '2007-11-23');
+INSERT INTO student (rollno, name, class, birthdate) VALUES (103, 'Charlie Brown', '10A', '2008-02-10');
+INSERT INTO student (rollno, name, class, birthdate) VALUES (104, 'David Williams', '10C', '2007-07-19');
+INSERT INTO student (rollno, name, class, birthdate) VALUES (105, 'Eva Adams', '10B', '2008-03-05');
+
+
+INSERT INTO course (courseno, coursename, maxmarks, passmarks) VALUES (201, 'Mathematics', 100, 35);
+INSERT INTO course (courseno, coursename, maxmarks, passmarks) VALUES (202, 'DSA', 100, 35);
+INSERT INTO course (courseno, coursename, maxmarks, passmarks) VALUES (203, 'DBMS', 100, 35);
+INSERT INTO course (courseno, coursename, maxmarks, passmarks) VALUES (204, 'SE', 100, 35);
+INSERT INTO course (courseno, coursename, maxmarks, passmarks) VALUES (205, 'OS', 100, 40);
+INSERT INTO course (courseno, coursename, maxmarks, passmarks) VALUES (206, 'Python', 100, 35);
+
+
+INSERT INTO sc (rollno, courseno, marks) VALUES (101, 201, 85);
+INSERT INTO sc (rollno, courseno, marks) VALUES (101, 202, 78);
+INSERT INTO sc (rollno, courseno, marks) VALUES (101, 203, 90);
+INSERT INTO sc (rollno, courseno, marks) VALUES (102, 201, 72);
+INSERT INTO sc (rollno, courseno, marks) VALUES (102, 202, 80);
+INSERT INTO sc (rollno, courseno, marks) VALUES (102, 204, 68);
+INSERT INTO sc (rollno, courseno, marks) VALUES (103, 203, 75);
+INSERT INTO sc (rollno, courseno, marks) VALUES (103, 205, 88);
+INSERT INTO sc (rollno, courseno, marks) VALUES (104, 201, 60);
+INSERT INTO sc (rollno, courseno, marks) VALUES (104, 202, 55);
+INSERT INTO sc (rollno, courseno, marks) VALUES (104, 205, 92);
+INSERT INTO sc (rollno, courseno, marks) VALUES (105, 203, 81);
+INSERT INTO sc (rollno, courseno, marks) VALUES (105, 204, 74);
+INSERT INTO sc (rollno, courseno, marks) VALUES (105, 205, 89);
+
+select s.* from student s join sc sc on s.rollno = sc.rollno join course c on sc.courseno = c.courseno where c.co
+ursename = 'DBMS';
+
+select s.name from student s join sc sc on s.rollno = sc.rollno join course c on sc.courseno = c.courseno where c.coursename = 'D
+SA' and sc.marks > (0.7 * c.maxmarks) and not exists(select * from sc where rollno = s.rollno and marks < c.passmarks);
+
+select rollno,avg(marks) as avg_marks from sc group by rollno;
+
+select * from course where passmarks > 0.3 * (select avg(maxmarks) from (course) );
+
+select * from student where extract(year from birthdate) in (2007,2008);
+
+create view student_course_marks as select s.rollno, s.name, c.courseno, c.coursename, sc.marks from student s join sc sc on s.rollno = sc.rollno join course c on sc.courseno = c.co
+urseno;
+
+select * from student_course_marks;
+
+alter table sc add primary key(rollno,courseno);

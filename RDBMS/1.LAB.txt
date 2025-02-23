@@ -1,0 +1,24 @@
+create table department(dept_no INT primary key, dept_name varchar(50), location varchar(20));
+
+insert into department values(10, 'Account', 'NY');
+insert into department values(20, 'HR', 'NY');
+insert into department values(30, 'Production', 'DL');
+insert into department values(40, 'Sales', 'NY');
+insert into department values(50, 'EDP', 'MU');
+insert into department values(60, 'TRG', NULL);
+insert into department values(110, 'RND', 'AH');
+
+
+select * from department;
+
+select * from department where location='NY';
+
+select * from department where dept_no=10;
+
+select * from department where dept_name like 'A%';
+
+select * from department where dept_no between 1 and 100;
+
+delete from department where dept_name='TRG';
+
+update department set dept_name='IT' where dept_name='EDP';
