@@ -1,0 +1,36 @@
+-- Creating Department Table
+CREATE TABLE department (
+    dept_no NUMBER PRIMARY KEY,
+    dept_name VARCHAR2(50) NOT NULL,
+    location VARCHAR2(20)
+);
+
+-- Inserting Sample Data into Department Table
+INSERT INTO department VALUES (10, 'Account', 'NY');
+INSERT INTO department VALUES (20, 'HR', 'NY');
+INSERT INTO department VALUES (30, 'Production', 'DL');
+INSERT INTO department VALUES (40, 'Sales', 'NY');
+INSERT INTO department VALUES (50, 'EDP', 'MU');
+INSERT INTO department VALUES (60, 'TRG', NULL);
+INSERT INTO department VALUES (110, 'RND', 'AH');
+
+-- Selecting All Records from Department Table
+SELECT * FROM department;
+
+-- Selecting Departments Located in 'NY'
+SELECT * FROM department WHERE location = 'NY';
+
+-- Selecting Department Where dept_no = 10
+SELECT * FROM department WHERE dept_no = 10;
+
+-- Selecting Departments Where dept_name Starts with 'A'
+SELECT * FROM department WHERE dept_name LIKE 'A%';
+
+-- Selecting Departments Where dept_no is Between 1 and 100
+SELECT * FROM department WHERE dept_no BETWEEN 1 AND 100;
+
+-- Deleting Department Where dept_name = 'TRG'
+DELETE FROM department WHERE dept_name = 'TRG';
+
+-- Updating Department Name from 'EDP' to 'IT'
+UPDATE department SET dept_name = 'IT' WHERE dept_name = 'EDP';

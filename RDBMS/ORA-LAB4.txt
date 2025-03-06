@@ -1,0 +1,114 @@
+-- Create Table DEPARTMENT2
+CREATE TABLE department2 (
+    dept_no INT PRIMARY KEY, 
+    dept_name VARCHAR2(20) NOT NULL, 
+    total_employees INT CHECK (total_employees >= 0) NOT NULL, 
+    location VARCHAR2(50) NOT NULL
+);
+
+-- Create Table EMPLOYEE2
+CREATE TABLE employee2 (
+    emp_id INT PRIMARY KEY, 
+    emp_name VARCHAR2(50) NOT NULL, 
+    birth_date DATE NOT NULL, 
+    gender CHAR(1) CHECK (gender IN ('M', 'F')) NOT NULL, 
+    dept_no INT REFERENCES department2(dept_no), 
+    address VARCHAR2(50), 
+    designation VARCHAR2(10) CHECK (designation IN ('manager','clerk','leader','analyst','designer','coder','tester')) NOT NULL, 
+    salary NUMBER(10,2) NOT NULL, 
+    experience INT CHECK (experience >= 0) NOT NULL, 
+    email VARCHAR2(50) UNIQUE NOT NULL
+);
+
+-- Create Table PROJECT2
+CREATE TABLE project2 (
+    proj_id INT PRIMARY KEY, 
+    type_of_project VARCHAR2(50), 
+    status VARCHAR2(20), 
+    start_date DATE, 
+    emp_id INT REFERENCES employee2(emp_id)
+);
+
+-- Insert data into DEPARTMENT2
+INSERT INTO department2 (dept_no, dept_name, total_employees, location) VALUES
+(1, 'HR', 5, 'New York');
+INSERT INTO department2 (dept_no, dept_name, total_employees, location) VALUES
+(2, 'IT', 12, 'San Francisco');
+INSERT INTO department2 (dept_no, dept_name, total_employees, location) VALUES
+(3, 'Finance', 8, 'Chicago');
+INSERT INTO department2 (dept_no, dept_name, total_employees, location) VALUES
+(4, 'Marketing', 6, 'Los Angeles');
+INSERT INTO department2 (dept_no, dept_name, total_employees, location) VALUES
+(5, 'Operations', 10, 'Houston');
+
+COMMIT;
+
+-- Insert data into EMPLOYEE2
+INSERT INTO employee2 (emp_id, emp_name, birth_date, gender, dept_no, address, designation, salary, experience, email) VALUES
+(101, 'Alice Johnson', TO_DATE('1985-03-15', 'YYYY-MM-DD'), 'F', 1, '123 Main St, NY', 'manager', 75000.00, 10, 'alice.johnson@example.com');
+INSERT INTO employee2 (emp_id, emp_name, birth_date, gender, dept_no, address, designation, salary, experience, email) VALUES
+(102, 'Bob Smith', TO_DATE('1990-07-22', 'YYYY-MM-DD'), 'M', 2, '456 Oak St, SF', 'coder', 65000.00, 5, 'bob.smith@example.com');
+INSERT INTO employee2 (emp_id, emp_name, birth_date, gender, dept_no, address, designation, salary, experience, email) VALUES
+(103, 'Charlie Brown', TO_DATE('1988-11-05', 'YYYY-MM-DD'), 'M', 3, '789 Pine St, CHI', 'analyst', 70000.00, 8, 'charlie.brown@example.com');
+INSERT INTO employee2 (emp_id, emp_name, birth_date, gender, dept_no, address, designation, salary, experience, email) VALUES
+(104, 'Diana Ross', TO_DATE('1995-06-30', 'YYYY-MM-DD'), 'F', 4, '321 Maple St, LA', 'designer', 68000.00, 3, 'diana.ross@example.com');
+INSERT INTO employee2 (emp_id, emp_name, birth_date, gender, dept_no, address, designation, salary, experience, email) VALUES
+(105, 'Ethan Hunt', TO_DATE('1987-02-20', 'YYYY-MM-DD'), 'M', 5, '987 Birch St, HOU', 'leader', 80000.00, 12, 'ethan.hunt@example.com');
+INSERT INTO employee2 (emp_id, emp_name, birth_date, gender, dept_no, address, designation, salary, experience, email) VALUES
+(106, 'Fiona Williams', TO_DATE('1993-09-12', 'YYYY-MM-DD'), 'F', 2, '654 Spruce St, SF', 'tester', 62000.00, 4, 'fiona.williams@example.com');
+INSERT INTO employee2 (emp_id, emp_name, birth_date, gender, dept_no, address, designation, salary, experience, email) VALUES
+(107, 'George King', TO_DATE('1991-04-25', 'YYYY-MM-DD'), 'M', 3, '852 Cedar St, CHI', 'clerk', 45000.00, 6, 'george.king@example.com');
+
+COMMIT;
+
+-- Insert data into PROJECT2
+INSERT INTO project2 (proj_id, type_of_project, status, start_date, emp_id) VALUES
+(1001, 'Software Development', 'Ongoing', TO_DATE('2024-01-10', 'YYYY-MM-DD'), 102);
+INSERT INTO project2 (proj_id, type_of_project, status, start_date, emp_id) VALUES
+(1002, 'Data Analysis', 'Completed', TO_DATE('2023-06-15', 'YYYY-MM-DD'), 103);
+INSERT INTO project2 (proj_id, type_of_project, status, start_date, emp_id) VALUES
+(1003, 'UI/UX Redesign', 'Ongoing', TO_DATE('2024-02-05', 'YYYY-MM-DD'), 104);
+INSERT INTO project2 (proj_id, type_of_project, status, start_date, emp_id) VALUES
+(1004, 'HR System Upgrade', 'Pending', TO_DATE('2024-03-01', 'YYYY-MM-DD'), 101);
+INSERT INTO project2 (proj_id, type_of_project, status, start_date, emp_id) VALUES
+(1005, 'Cloud Migration', 'Ongoing', TO_DATE('2023-12-01', 'YYYY-MM-DD'), 105);
+INSERT INTO project2 (proj_id, type_of_project, status, start_date, emp_id) VALUES
+(1006, 'System Testing', 'Completed', TO_DATE('2023-08-20', 'YYYY-MM-DD'), 106);
+INSERT INTO project2 (proj_id, type_of_project, status, start_date, emp_id) VALUES
+(1007, 'Financial Audit', 'Pending', TO_DATE('2024-04-15', 'YYYY-MM-DD'), 107);
+
+COMMIT;
+
+-- Delete from department2 where total_employees < 1
+DELETE FROM department2 WHERE total_employees < 1;
+
+-- Select employees whose gender is 'F' and order by name in descending order
+SELECT emp_name, designation 
+FROM employee2 
+WHERE gender = 'F' 
+ORDER BY emp_name DESC;
+
+-- Select employees whose names start and end with 'A'
+SELECT emp_name 
+FROM employee2 
+WHERE emp_name LIKE 'A%A';
+
+-- Select employee(s) with the lowest salary
+SELECT emp_name, salary 
+FROM employee2 
+WHERE salary = (SELECT MIN(salary) FROM employee2);
+
+-- Update salary by 10% for employees in Finance department
+UPDATE employee2 
+SET salary = salary * 1.10 
+WHERE dept_no = (SELECT dept_no FROM department2 WHERE dept_name = 'Finance');
+
+-- Count total employees in IT department
+SELECT COUNT(*) AS total_employees 
+FROM employee2 
+WHERE dept_no = (SELECT dept_no FROM department2 WHERE dept_name = 'IT');
+
+-- Select employees whose birthday is in the current month
+SELECT emp_id, emp_name, birth_date 
+FROM employee2 
+WHERE EXTRACT(MONTH FROM birth_date) = EXTRACT(MONTH FROM SYSDATE);

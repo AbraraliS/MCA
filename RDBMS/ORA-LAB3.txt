@@ -1,0 +1,100 @@
+-- Create COURSE table
+CREATE TABLE course (
+    courseno NUMBER PRIMARY KEY,
+    coursename VARCHAR2(20) NOT NULL,
+    maxmarks NUMBER(3) NOT NULL,
+    passmarks NUMBER(3) NOT NULL
+);
+
+-- Create STUDENT table
+CREATE TABLE student (
+    rollno NUMBER PRIMARY KEY,
+    name VARCHAR2(50) NOT NULL,
+    class VARCHAR2(10) NOT NULL,
+    birthdate DATE NOT NULL
+);
+
+-- Create SC (Student-Course) table
+CREATE TABLE sc (
+    rollno NUMBER,
+    courseno NUMBER,
+    marks NUMBER(5) NOT NULL,
+    CONSTRAINT fk_sc_student FOREIGN KEY (rollno) REFERENCES student(rollno),
+    CONSTRAINT fk_sc_course FOREIGN KEY (courseno) REFERENCES course(courseno),
+    CONSTRAINT pk_sc PRIMARY KEY (rollno, courseno)
+);
+
+-- Insert data into STUDENT
+INSERT INTO student (rollno, name, class, birthdate) VALUES (101, 'Alice Johnson', '10A', TO_DATE('2008-05-14', 'YYYY-MM-DD'));
+INSERT INTO student (rollno, name, class, birthdate) VALUES (102, 'Bob Smith', '10B', TO_DATE('2007-11-23', 'YYYY-MM-DD'));
+INSERT INTO student (rollno, name, class, birthdate) VALUES (103, 'Charlie Brown', '10A', TO_DATE('2008-02-10', 'YYYY-MM-DD'));
+INSERT INTO student (rollno, name, class, birthdate) VALUES (104, 'David Williams', '10C', TO_DATE('2007-07-19', 'YYYY-MM-DD'));
+INSERT INTO student (rollno, name, class, birthdate) VALUES (105, 'Eva Adams', '10B', TO_DATE('2008-03-05', 'YYYY-MM-DD'));
+
+-- Insert data into COURSE
+INSERT INTO course (courseno, coursename, maxmarks, passmarks) VALUES (201, 'Mathematics', 100, 35);
+INSERT INTO course (courseno, coursename, maxmarks, passmarks) VALUES (202, 'DSA', 100, 35);
+INSERT INTO course (courseno, coursename, maxmarks, passmarks) VALUES (203, 'DBMS', 100, 35);
+INSERT INTO course (courseno, coursename, maxmarks, passmarks) VALUES (204, 'SE', 100, 35);
+INSERT INTO course (courseno, coursename, maxmarks, passmarks) VALUES (205, 'OS', 100, 40);
+INSERT INTO course (courseno, coursename, maxmarks, passmarks) VALUES (206, 'Python', 100, 35);
+
+-- Insert data into SC (Student-Course)
+INSERT INTO sc (rollno, courseno, marks) VALUES (101, 201, 85);
+INSERT INTO sc (rollno, courseno, marks) VALUES (101, 202, 78);
+INSERT INTO sc (rollno, courseno, marks) VALUES (101, 203, 90);
+INSERT INTO sc (rollno, courseno, marks) VALUES (102, 201, 72);
+INSERT INTO sc (rollno, courseno, marks) VALUES (102, 202, 80);
+INSERT INTO sc (rollno, courseno, marks) VALUES (102, 204, 68);
+INSERT INTO sc (rollno, courseno, marks) VALUES (103, 203, 75);
+INSERT INTO sc (rollno, courseno, marks) VALUES (103, 205, 88);
+INSERT INTO sc (rollno, courseno, marks) VALUES (104, 201, 60);
+INSERT INTO sc (rollno, courseno, marks) VALUES (104, 202, 55);
+INSERT INTO sc (rollno, courseno, marks) VALUES (104, 205, 92);
+INSERT INTO sc (rollno, courseno, marks) VALUES (105, 203, 81);
+INSERT INTO sc (rollno, courseno, marks) VALUES (105, 204, 74);
+INSERT INTO sc (rollno, courseno, marks) VALUES (105, 205, 89);
+
+-- Query: Get details of students enrolled in 'DBMS'
+SELECT s.* 
+FROM student s 
+JOIN sc sc ON s.rollno = sc.rollno 
+JOIN course c ON sc.courseno = c.courseno 
+WHERE c.coursename = 'DBMS';
+
+-- Query: Get students with marks > 70% in 'DSA' and no failing grades
+SELECT s.name 
+FROM student s 
+JOIN sc sc ON s.rollno = sc.rollno 
+JOIN course c ON sc.courseno = c.courseno 
+WHERE c.coursename = 'DSA' 
+AND sc.marks > (0.7 * c.maxmarks) 
+AND NOT EXISTS (
+    SELECT * FROM sc 
+    WHERE rollno = s.rollno AND marks < c.passmarks
+);
+
+-- Query: Get average marks per student
+SELECT rollno, AVG(marks) AS avg_marks 
+FROM sc 
+GROUP BY rollno;
+
+-- Query: Get courses where passmarks > 30% of average maxmarks
+SELECT * 
+FROM course 
+WHERE passmarks > 0.3 * (SELECT AVG(maxmarks) FROM course);
+
+-- Query: Get students born in 2007 or 2008
+SELECT * 
+FROM student 
+WHERE EXTRACT(YEAR FROM birthdate) IN (2007, 2008);
+
+-- Create VIEW: Student Course Marks
+CREATE VIEW student_course_marks AS 
+SELECT s.rollno, s.name, c.courseno, c.coursename, sc.marks 
+FROM student s 
+JOIN sc sc ON s.rollno = sc.rollno 
+JOIN course c ON sc.courseno = c.courseno;
+
+-- Query: View data from student_course_marks
+SELECT * FROM student_course_marks;
