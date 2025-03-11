@@ -26,7 +26,7 @@ output : 4
 6. There are N straight line that are non parallel and no 3 lines go through to the same point. The lines divide the plain into M region's write a function to find the maximum number of region's that can be formed on the plain.
 [Note : Since the answer can be quite large modulo it by 1000000007]. 
 
-7. Let j and k be two indices in an array A, if j < k and A[j] < A[k], then the pair [j,k] is called as invertion pairs. Give array size of N calculate the no od invetion pair in that array.
+7. Let j and k be two indices in an array A, if j < k and A[j] < A[k], then the pair [j,k] is called as invertion pairs. Give array size of N calculate the no odd invetion pair in that array.
 input : 1 20 6 4 5 
 output : 5
 

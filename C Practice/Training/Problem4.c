@@ -59,7 +59,7 @@ int main() {
         count[birds[i]]++;
     }
 
-    // Find the most frequently sighted bird with the smallest ID
+    // Find the most frequently sighted bird with the smallest ID rew   
     int maxCount = 0, resultID = 0;
     for(int i = 1; i <= 5; i++) {
         if(count[i] > maxCount) {
