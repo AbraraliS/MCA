@@ -1,0 +1,8 @@
+1. Alice is preparing for marathon. She practices for climbing the stairs each time she either climb one stair or two stairs.
+in how many distincs way if shes start from the bottom in how many distincs way can she reach the top.
+
+Input : int n = total number of stairs 3;
+output : 3
+
+2. Arithmatic array is an array that contain atleast two integers and diffrence between consicutive int or equal. Given an array of non negative int & determine the lenght of logest contigeous Arithmatic sub array.
+ex : {9,3}, {3,3,3}
