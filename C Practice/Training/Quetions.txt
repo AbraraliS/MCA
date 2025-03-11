@@ -1,0 +1,33 @@
+Date : 10/03/2025
+1. Alice is preparing for marathon. She practices for climbing the stairs each time she either climb one stair or two stairs.
+in how many distincs way if shes start from the bottom in how many distincs way can she reach the top.
+
+Input : int n = total number of stairs 3;
+output : 3
+
+2. Arithmatic array is an array that contain atleast two integers and diffrence between consicutive int or equal. Given an array of non negative int & determine the lenght of logest contigeous Arithmatic sub array.
+ex : {9,3}, {3,3,3}
+
+Date : 11/03/2025
+3. A left rotation operation of an array of size n shift each of the array elements d units to the left. Given int d rotate the array that many steps left and return the result.  
+input : 10 20 30 40 50 60 
+output : 30 40 50 60 10 20
+
+4. Given an array of word sighted where every elements represents a bird type id. Determine id of the most frequently sighted type if more than one type is spotted then return smallest of their id's.
+input : 1 1 2 2 5 4
+output : 1
+
+5. There is a string S in lower case english letters that is repeated infinitely many times. Given an int N find and print of 'A' in the first N letters of the infinite string.
+S = "abc"
+n = 10
+input : abcabcabca
+output : 4
+
+6. There are N straight line that are non parallel and no 3 lines go through to the same point. The lines divide the plain into M region's write a function to find the maximum number of region's that can be formed on the plain.
+[Note : Since the answer can be quite large modulo it by 1000000007]. 
+
+7. Let j and k be two indices in an array A, if j < k and A[j] < A[k], then the pair [j,k] is called as invertion pairs. Give array size of N calculate the no od invetion pair in that array.
+input : 1 20 6 4 5 
+output : 5
+
+8. In an array superior element is the one that is greater than all the elements to its right, right most element is always superior. find the number of superior element in the array. 
