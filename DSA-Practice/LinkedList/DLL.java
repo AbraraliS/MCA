@@ -58,9 +58,9 @@ public class DLL {
         newNode.back = current;
         return head;
     }
-    private static Node insertHead(Node head, int k) {
-        return new Node(head, k)
-    }
+    // private static Node insertHead(Node head, int k) {
+    //     return new Node(head, k)
+    // }
 
     public static void main(String[] args) {
 
@@ -71,7 +71,7 @@ public class DLL {
         printNode(head);
         head = insertTail(head, 100);
         printNode(head);
-        head = insertHead(head, 200);
+        // head = insertHead(head, 200);
         printNode(head);
     }
 }

@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>To-Do List by Date</title>
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      background-color: #f7f7f7;
+      margin: 0;
+      padding: 0;
+      color: #222;
+      min-height: 100vh;
+    }
+    .container {
+      max-width: 700px;
+      margin: 40px auto;
+      background: #fff;
+      border-radius: 14px;
+      box-shadow: 0 4px 24px rgba(44,62,80,0.10);
+      padding: 36px 28px 28px 28px;
+      position: relative;
+    }
+    h1 {
+      text-align: center;
+      color: #2c3e50;
+      margin-bottom: 18px;
+      font-size: 2.2rem;
+      letter-spacing: 1px;
+    }
+    .input-row {
+      display: flex;
+      gap: 10px;
+      margin-bottom: 22px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+    #task-input {
+      flex: 2;
+      padding: 10px;
+      border-radius: 7px;
+      border: 1.5px solid #b2bec3;
+      font-size: 1rem;
+      background: #f0f0f0;
+      min-width: 120px;
+    }
+    #priority-input, #due-date-input {
+      padding: 10px 8px;
+      border-radius: 7px;
+      border: 1.5px solid #b2bec3;
+      font-size: 1rem;
+      background: #f0f0f0;
+      min-width: 90px;
+      color: #2c3e50;
+    }
+    #add-btn {
+      background: #2c3e50;
+      color: #fff;
+      border: none;
+      border-radius: 7px;
+      padding: 10px 22px;
+      font-size: 1.05rem;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+    #add-btn:hover {
+      background: #2980b9;
+    }
+    .date-group {
+      margin-bottom: 32px;
+      background: #f8f9fa;
+      border-radius: 10px;
+      box-shadow: 0 2px 8px #b2bec322;
+      padding: 18px 18px 8px 18px;
+    }
+    .date-title {
+      font-size: 1.18rem;
+      color: #2980b9;
+      font-weight: bold;
+      margin-bottom: 10px;
+      border-bottom: 1px solid #b2bec3;
+      padding-bottom: 4px;
+    }
+    ul.todo-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    li.task {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: #fff;
+      margin-bottom: 10px;
+      padding: 13px 10px;
+      border-radius: 7px;
+      box-shadow: 0 2px 8px #b2bec322;
+      font-size: 1.08rem;
+      transition: background 0.2s;
+      position: relative;
+    }
+    li.task.completed {
+      text-decoration: line-through;
+      color: #b2bec3;
+      background: #f0f0f0;
+    }
+    .actions {
+      display: flex;
+      gap: 8px;
+      margin-left: 8px;
+    }
+    .actions button {
+      border: none;
+      background: none;
+      cursor: pointer;
+      font-size: 1.1rem;
+      color: #2c3e50;
+      border-radius: 5px;
+      transition: background 0.2s, color 0.2s;
+      padding: 2px 7px;
+    }
+    .actions button:hover {
+      background: #e0e0e0;
+      color: #2980b9;
+    }
+    .priority {
+      margin-left: 8px;
+      font-size: 0.95em;
+      font-weight: bold;
+      padding: 2px 8px;
+      border-radius: 8px;
+      background: #f9e79f;
+      color: #b9770e;
+      border: 1px solid #f7ca18;
+      vertical-align: middle;
+      margin-right: 4px;
+    }
+    .priority.high {
+      background: #f5b7b1;
+      color: #c0392b;
+      border-color: #e74c3c;
+    }
+    .priority.low {
+      background: #d4efdf;
+      color: #229954;
+      border-color: #27ae60;
+    }
+    .due-date {
+      margin-left: 10px;
+      font-size: 0.93em;
+      color: #1976d2;
+      font-weight: 500;
+      background: #e3f2fd;
+      border-radius: 6px;
+      padding: 2px 8px;
+      border: 1px solid #90caf9;
+      vertical-align: middle;
+    }
+    .clear-btn {
+      display: block;
+      margin: 24px auto 0 auto;
+      background: #e74c3c;
+      color: #fff;
+      border: none;
+      border-radius: 7px;
+      padding: 10px 24px;
+      font-size: 1rem;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+    .clear-btn:hover {
+      background: #c0392b;
+    }
+    .stats {
+      text-align: center;
+      margin: 18px 0 0 0;
+      color: #2c3e50;
+      font-weight: bold;
+      font-size: 1.08rem;
+    }
+    @media (max-width: 700px) {
+      .container {
+        padding: 12px 2vw 12px 2vw;
+        max-width: 99vw;
+      }
+      .input-row {
+        flex-direction: column;
+        gap: 8px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>To-Do List by Date</h1>
+    <div class="input-row">
+      <input type="text" id="task-input" placeholder="Add a new task..." />
+      <select id="priority-input" title="Priority">
+        <option value="normal">Priority</option>
+        <option value="high">High</option>
+        <option value="normal">Normal</option>
+        <option value="low">Low</option>
+      </select>
+      <input type="date" id="due-date-input" title="Due Date" />
+      <button id="add-btn" title="Add Task">Add</button>
+    </div>
+    <div id="tasks-by-date"></div>
+    <div class="stats" id="stats"></div>
+    <button class="clear-btn" id="clear-completed">Clear Completed</button>
+  </div>
+  <script>
+    function getTasks() {
+      return JSON.parse(localStorage.getItem('tasks') || '[]');
+    }
+    function saveTasks(tasks) {
+      localStorage.setItem('tasks', JSON.stringify(tasks));
+    }
+
+    const taskInput = document.getElementById('task-input');
+    const priorityInput = document.getElementById('priority-input');
+    const dueDateInput = document.getElementById('due-date-input');
+    const addBtn = document.getElementById('add-btn');
+    const tasksByDateDiv = document.getElementById('tasks-by-date');
+    const clearBtn = document.getElementById('clear-completed');
+    const stats = document.getElementById('stats');
+    let tasks = getTasks();
+
+    function groupTasksByDate(tasks) {
+      const grouped = {};
+      tasks.forEach((task, idx) => {
+        const date = task.dueDate || 'No Date';
+        if (!grouped[date]) grouped[date] = [];
+        grouped[date].push({ ...task, idx });
+      });
+      // Sort dates: earliest first, "No Date" last
+      const sortedDates = Object.keys(grouped).sort((a, b) => {
+        if (a === 'No Date') return 1;
+        if (b === 'No Date') return -1;
+        return a.localeCompare(b);
+      });
+      return { grouped, sortedDates };
+    }
+
+    function renderTasks() {
+      tasksByDateDiv.innerHTML = '';
+      const { grouped, sortedDates } = groupTasksByDate(tasks);
+
+      sortedDates.forEach(date => {
+        const groupDiv = document.createElement('div');
+        groupDiv.className = 'date-group';
+        const title = document.createElement('div');
+        title.className = 'date-title';
+        title.textContent = date === 'No Date' ? 'No Date' : `Date: ${date}`;
+        groupDiv.appendChild(title);
+
+        const ul = document.createElement('ul');
+        ul.className = 'todo-list';
+
+        grouped[date].forEach(taskObj => {
+          const { idx, ...task } = taskObj;
+          const li = document.createElement('li');
+          li.className = 'task' + (task.completed ? ' completed' : '');
+
+          // Checkbox
+          const checkbox = document.createElement('input');
+          checkbox.type = 'checkbox';
+          checkbox.checked = task.completed;
+          checkbox.title = "Mark as completed";
+          checkbox.addEventListener('change', () => {
+            tasks[idx].completed = !tasks[idx].completed;
+            saveTasks(tasks);
+            renderTasks();
+          });
+
+          // Task text
+          const span = document.createElement('span');
+          span.textContent = task.text;
+          span.style.flex = '1';
+          li.appendChild(checkbox);
+          li.appendChild(span);
+
+          // Priority badge
+          if (task.priority && task.priority !== 'normal') {
+            const badge = document.createElement('span');
+            badge.className = 'priority ' + task.priority;
+            badge.textContent = task.priority.charAt(0).toUpperCase() + task.priority.slice(1);
+            li.appendChild(badge);
+          }
+          // Due date
+          if (task.dueDate) {
+            const due = document.createElement('span');
+            due.className = 'due-date';
+            due.textContent = 'Due: ' + task.dueDate;
+            li.appendChild(due);
+          }
+
+          // Actions
+          const actions = document.createElement('div');
+          actions.className = 'actions';
+          // Edit button
+          const editBtn = document.createElement('button');
+          editBtn.title = "Edit";
+          editBtn.innerHTML = '✏️';
+          editBtn.addEventListener('click', () => startEdit(idx));
+          actions.appendChild(editBtn);
+          // Delete button
+          const delBtn = document.createElement('button');
+          delBtn.title = "Delete";
+          delBtn.innerHTML = '🗑️';
+          delBtn.addEventListener('click', () => {
+            tasks.splice(idx, 1);
+            saveTasks(tasks);
+            renderTasks();
+          });
+          actions.appendChild(delBtn);
+          li.appendChild(actions);
+
+          // Double-click to edit
+          li.addEventListener('dblclick', () => startEdit(idx));
+          ul.appendChild(li);
+        });
+
+        groupDiv.appendChild(ul);
+        tasksByDateDiv.appendChild(groupDiv);
+      });
+
+      // Stats
+      const total = tasks.length;
+      const completed = tasks.filter(t => t.completed).length;
+      const active = total - completed;
+      stats.innerHTML = `Total: ${total} | Active: ${active} | Completed: ${completed}`;
+    }
+
+    function addTask() {
+      const text = taskInput.value.trim();
+      const priority = priorityInput.value;
+      const dueDate = dueDateInput.value;
+      if (!text) return;
+      tasks.push({ text, completed: false, priority: priority || 'normal', dueDate: dueDate || '' });
+      saveTasks(tasks);
+      taskInput.value = '';
+      priorityInput.value = 'normal';
+      dueDateInput.value = '';
+      renderTasks();
+    }
+
+    function startEdit(idx) {
+      const task = tasks[idx];
+      const newText = prompt("Edit task:", task.text);
+      if (newText !== null && newText.trim()) {
+        tasks[idx].text = newText.trim();
+        saveTasks(tasks);
+        renderTasks();
+      }
+    }
+
+    addBtn.onclick = addTask;
+    taskInput.addEventListener('keydown', e => {
+      if (e.key === 'Enter') addTask();
+    });
+
+    clearBtn.onclick = () => {
+      tasks = tasks.filter(t => !t.completed);
+      saveTasks(tasks);
+      renderTasks();
+    };
+
+    // Initial render
+    renderTasks();
+  </script>
+</body>
+</html>

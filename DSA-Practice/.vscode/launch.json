@@ -6,6 +6,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "StreamPrograme",
+            "request": "launch",
+            "mainClass": "StreamAPI.StreamPrograme",
+            "projectName": "DSA-Practice_36feec7f"
+        },
+        {
+            "type": "java",
             "name": "Current File",
             "request": "launch",
             "mainClass": "${file}"

@@ -9,5 +9,6 @@ void main()
     int n;
     scanf("%d", &n);
     int r = (n * (n + 1) / 2) + 1;
+    // r = n + r + 1;
     printf("%d", r%1000000007);
 }

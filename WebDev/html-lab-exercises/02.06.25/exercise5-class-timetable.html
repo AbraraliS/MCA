@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Class Timetable</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+        .container {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+        h1 {
+            text-align: center;
+            color: #2c3e50;
+            margin-bottom: 10px;
+        }
+        .class-info {
+            text-align: center;
+            color: #666;
+            margin-bottom: 30px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+        th {
+            background: linear-gradient(45deg, #2c3e50, #34495e);
+            color: white;
+            padding: 15px 8px;
+            text-align: center;
+            font-weight: bold;
+            font-size: 14px;
+        }
+        td {
+            padding: 12px 8px;
+            text-align: center;
+            border: 1px solid #ecf0f1;
+            vertical-align: middle;
+            font-size: 12px;
+        }
+        .time-slot {
+            background: #3498db;
+            color: white;
+            font-weight: bold;
+            font-size: 11px;
+        }
+        .subject {
+            font-weight: bold;
+            color: #2c3e50;
+        }
+        .teacher {
+            color: #666;
+            font-size: 10px;
+        }
+        .room {
+            color: #e74c3c;
+            font-size: 10px;
+        }
+        .break {
+            background: #f39c12;
+            color: white;
+            font-weight: bold;
+        }
+        .lunch {
+            background: #27ae60;
+            color: white;
+            font-weight: bold;
+        }
+        .empty {
+            background: #ecf0f1;
+            color: #bdc3c7;
+        }
+        .legend {
+            margin-top: 20px;
+            padding: 15px;
+            background: #f8f9fa;
+            border-radius: 8px;
+        }
+        .legend h3 {
+            color: #2c3e50;
+            margin-bottom: 10px;
+        }
+        .legend-item {
+            display: inline-block;
+            margin: 5px 10px;
+            padding: 5px 10px;
+            border-radius: 5px;
+            font-size: 12px;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>📅 Class Timetable</h1>
+        <div class="class-info">
+            <strong>Class:</strong> II MCA - D | <strong>Academic Year:</strong> 2024-25 | <strong>Semester:</strong> IV
+        </div>
+        
+        <table>
+            <thead>
+                <tr>
+                    <th>Time</th>
+                    <th>Monday</th>
+                    <th>Tuesday</th>
+                    <th>Wednesday</th>
+                    <th>Thursday</th>
+                    <th>Friday</th>
+                    <th>Saturday</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="time-slot">9:00-10:00</td>
+                    <td>
+                        <div class="subject">ADA</div>
+                        <div class="teacher">Dr. Rajesh Kumar</div>
+                        <div class="room">Room 201</div>
+                    </td>
+                    <td>
+                        <div class="subject">JAVA</div>
+                        <div class="teacher">Prof. Amit Patel</div>
+                        <div class="room">Lab A</div>
+                    </td>
+                    <td>
+                        <div class="subject">ML</div>
+                        <div class="teacher">Dr. Priya Sharma</div>
+                        <div class="room">Room 203</div>
+                    </td>
+                    <td>
+                        <div class="subject">WADF</div>
+                        <div class="teacher">Ms. Sneha Reddy</div>
+                        <div class="room">Lab B</div>
+                    </td>
+                    <td>
+                        <div class="subject">CC</div>
+                        <div class="teacher">Dr. Vikram Singh</div>
+                        <div class="room">Room 205</div>
+                    </td>
+                    <td class="empty">Free</td>
+                </tr>
+                <tr>
+                    <td class="time-slot">10:00-11:00</td>
+                    <td>
+                        <div class="subject">ML</div>
+                        <div class="teacher">Dr. Priya Sharma</div>
+                        <div class="room">Room 203</div>
+                    </td>
+                    <td>
+                        <div class="subject">ADA</div>
+                        <div class="teacher">Dr. Rajesh Kumar</div>
+                        <div class="room">Room 201</div>
+                    </td>
+                    <td>
+                        <div class="subject">JAVA</div>
+                        <div class="teacher">Prof. Amit Patel</div>
+                        <div class="room">Lab A</div>
+                    </td>
+                    <td>
+                        <div class="subject">CC</div>
+                        <div class="teacher">Dr. Vikram Singh</div>
+                        <div class="room">Room 205</div>
+                    </td>
+                    <td>
+                        <div class="subject">WADF</div>
+                        <div class="teacher">Ms. Sneha Reddy</div>
+                        <div class="room">Lab B</div>
+                    </td>
+                    <td class="empty">Free</td>
+                </tr>
+                <tr>
+                    <td class="time-slot">11:00-11:15</td>
+                    <td class="break" colspan="6">TEA BREAK</td>
+                </tr>
+                <tr>
+                    <td class="time-slot">11:15-12:15</td>
+                    <td>
+                        <div class="subject">WADF Lab</div>
+                        <div class="teacher">Ms. Sneha Reddy</div>
+                        <div class="room">Lab B</div>
+                    </td>
+                    <td>
+                        <div class="subject">ML Lab</div>
+                        <div class="teacher">Dr. Priya Sharma</div>
+                        <div class="room">Lab C</div>
+                    </td>
+                    <td>
+                        <div class="subject">CC</div>
+                        <div class="teacher">Dr. Vikram Singh</div>
+                        <div class="room">Room 205</div>
+                    </td>
+                    <td>
+                        <div class="subject">ADA</div>
+                        <div class="teacher">Dr. Rajesh Kumar</div>
+                        <div class="room">Room 201</div>
+                    </td>
+                    <td>
+                        <div class="subject">JAVA Lab</div>
+                        <div class="teacher">Prof. Amit Patel</div>
+                        <div class="room">Lab A</div>
+                    </td>
+                    <td class="empty">Free</td>
+                </tr>
+                <tr>
+                    <td class="time-slot">12:15-1:15</td>
+                    <td>
+                        <div class="subject">WADF Lab</div>
+                        <div class="teacher">Ms. Sneha Reddy</div>
+                        <div class="room">Lab B</div>
+                    </td>
+                    <td>
+                        <div class="subject">ML Lab</div>
+                        <div class="teacher">Dr. Priya Sharma</div>
+                        <div class="room">Lab C</div>
+                    </td>
+                    <td>
+                        <div class="subject">Seminar</div>
+                        <div class="teacher">All Faculty</div>
+                        <div class="room">Auditorium</div>
+                    </td>
+                    <td>
+                        <div class="subject">Project Work</div>
+                        <div class="teacher">Guide Teachers</div>
+                        <div class="room">Various</div>
+                    </td>
+                    <td>
+                        <div class="subject">JAVA Lab</div>
+                        <div class="teacher">Prof. Amit Patel</div>
+                        <div class="room">Lab A</div>
+                    </td>
+                    <td class="empty">Free</td>
+                </tr>
+                <tr>
+                    <td class="time-slot">1:15-2:00</td>
+                    <td class="lunch" colspan="6">LUNCH BREAK</td>
+                </tr>
+                <tr>
+                    <td class="time-slot">2:00-3:00</td>
+                    <td>
+                        <div class="subject">CC Lab</div>
+                        <div class="teacher">Dr. Vikram Singh</div>
+                        <div class="room">Lab D</div>
+                    </td>
+                    <td>
+                        <div class="subject">WADF</div>
+                        <div class="teacher">Ms. Sneha Reddy</div>
+                        <div class="room">Room 204</div>
+                    </td>
+                    <td>
+                        <div class="subject">ADA Lab</div>
+                        <div class="teacher">Dr. Rajesh Kumar</div>
+                        <div class="room">Lab A</div>
+                    </td>
+                    <td>
+                        <div class="subject">ML</div>
+                        <div class="teacher">Dr. Priya Sharma</div>
+                        <div class="room">Room 203</div>
+                    </td>
+                    <td class="empty">Free</td>
+                    <td class="empty">Free</td>
+                </tr>
+                <tr>
+                    <td class="time-slot">3:00-4:00</td>
+                    <td>
+                        <div class="subject">CC Lab</div>
+                        <div class="teacher">Dr. Vikram Singh</div>
+                        <div class="room">Lab D</div>
+                    </td>
+                    <td>
+                        <div class="subject">Tutorial</div>
+                        <div class="teacher">Class Teacher</div>
+                        <div class="room">Room 202</div>
+                    </td>
+                    <td>
+                        <div class="subject">ADA Lab</div>
+                        <div class="teacher">Dr. Rajesh Kumar</div>
+                        <div class="room">Lab A</div>
+                    </td>
+                    <td>
+                        <div class="subject">Library</div>
+                        <div class="teacher">Self Study</div>
+                        <div class="room">Library</div>
+                    </td>
+                    <td class="empty">Free</td>
+                    <td class="empty">Free</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div class="legend">
+            <h3>Subject Codes & Faculty</h3>
+            <div>
+                <span class="legend-item" style="background: #3498db;"><strong>ADA:</strong> Algorithm Design & Analysis - Dr. Rajesh Kumar</span>
+                <span class="legend-item" style="background: #e74c3c;"><strong>ML:</strong> Machine Learning - Dr. Priya Sharma</span>
+                <span class="legend-item" style="background: #27ae60;"><strong>JAVA:</strong> Java Programming - Prof. Amit Patel</span>
+            </div>
+            <div style="margin-top: 10px;">
+                <span class="legend-item" style="background: #f39c12;"><strong>WADF:</strong> Web App Development Framework - Ms. Sneha Reddy</span>
+                <span class="legend-item" style="background: #9b59b6;"><strong>CC:</strong> Cloud Computing - Dr. Vikram Singh</span>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

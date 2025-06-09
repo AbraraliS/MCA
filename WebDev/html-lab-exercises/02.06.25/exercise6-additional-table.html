@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Additional Data Tables</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+        .container {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+        h1, h2 {
+            text-align: center;
+            color: #2c3e50;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+        th {
+            background: linear-gradient(45deg, #8e44ad, #9b59b6);
+            color: white;
+            padding: 15px;
+            text-align: center;
+            font-weight: bold;
+        }
+        td {
+            padding: 12px 15px;
+            text-align: center;
+            border-bottom: 1px solid #ecf0f1;
+        }
+        tr:nth-child(even) {
+            background-color: #f8f9fa;
+        }
+        tr:hover {
+            background-color: #e3f2fd;
+        }
+        .section {
+            margin: 40px 0;
+        }
+        .table-title {
+            background: #34495e;
+            color: white;
+            padding: 10px;
+            margin: 20px 0 0 0;
+            border-radius: 5px;
+        }
+        .status-active { color: #27ae60; font-weight: bold; }
+        .status-inactive { color: #e74c3c; font-weight: bold; }
+        .priority-high { color: #e74c3c; font-weight: bold; }
+        .priority-medium { color: #f39c12; font-weight: bold; }
+        .priority-low { color: #27ae60; font-weight: bold; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>📋 Additional Data Tables</h1>
+        
+        <div class="section">
+            <h2 class="table-title">Library Book Management</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Book ID</th>
+                        <th>Title</th>
+                        <th>Author</th>
+                        <th>Category</th>
+                        <th>ISBN</th>
+                        <th>Status</th>
+                        <th>Due Date</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>LIB001</td>
+                        <td>Data Structures and Algorithms</td>
+                        <td>Thomas H. Cormen</td>
+                        <td>Computer Science</td>
+                        <td>978-0262033848</td>
+                        <td class="status-active">Available</td>
+                        <td>-</td>
+                    </tr>
+                    <tr>
+                        <td>LIB002</td>
+                        <td>Machine Learning Yearning</td>
+                        <td>Andrew Ng</td>
+                        <td>AI/ML</td>
+                        <td>978-0999579909</td>
+                        <td class="status-inactive">Issued</td>
+                        <td>2025-06-15</td>
+                    </tr>
+                    <tr>
+                        <td>LIB003</td>
+                        <td>Clean Code</td>
+                        <td>Robert C. Martin</td>
+                        <td>Programming</td>
+                        <td>978-0132350884</td>
+                        <td class="status-active">Available</td>
+                        <td>-</td>
+                    </tr>
+                    <tr>
+                        <td>LIB004</td>
+                        <td>Database System Concepts</td>
+                        <td>Abraham Silberschatz</td>
+                        <td>Database</td>
+                        <td>978-0078022159</td>
+                        <td class="status-inactive">Issued</td>
+                        <td>2025-06-20</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="section">
+            <h2 class="table-title">Project Task Management</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Task ID</th>
+                        <th>Task Name</th>
+                        <th>Assigned To</th>
+                        <th>Priority</th>
+                        <th>Start Date</th>
+                        <th>End Date</th>
+                        <th>Progress</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>TSK001</td>
+                        <td>Database Design</td>
+                        <td>Rahul Sharma</td>
+                        <td class="priority-high">High</td>
+                        <td>2025-06-01</td>
+                        <td>2025-06-10</td>
+                        <td>75%</td>
+                    </tr>
+                    <tr>
+                        <td>TSK002</td>
+                        <td>Frontend Development</td>
+                        <td>Priya Patel</td>
+                        <td class="priority-medium">Medium</td>
+                        <td>2025-06-05</td>
+                        <td>2025-06-20</td>
+                        <td>45%</td>
+                    </tr>
+                    <tr>
+                        <td>TSK003</td>
+                        <td>API Integration</td>
+                        <td>Amit Kumar</td>
+                        <td class="priority-high">High</td>
+                        <td>2025-06-08</td>
+                        <td>2025-06-15</td>
+                        <td>30%</td>
+                    </tr>
+                    <tr>
+                        <td>TSK004</td>
+                        <td>Testing & Documentation</td>
+                        <td>Team Lead</td>
+                        <td class="priority-low">Low</td>
+                        <td>2025-06-18</td>
+                        <td>2025-06-25</td>
+                        <td>10%</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="section">
+            <h2 class="table-title">Examination Schedule</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Exam Code</th>
+                        <th>Subject</th>
+                        <th>Date</th>
+                        <th>Time</th>
+                        <th>Duration</th>
+                        <th>Room</th>
+                        <th>Max Marks</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>EX001</td>
+                        <td>Algorithm Design & Analysis</td>
+                        <td>2025-07-01</td>
+                        <td>10:00 AM</td>
+                        <td>3 Hours</td>
+                        <td>Hall A</td>
+                        <td>100</td>
+                    </tr>
+                    <tr>
+                        <td>EX002</td>
+                        <td>Machine Learning</td>
+                        <td>2025-07-03</td>
+                        <td>10:00 AM</td>
+                        <td>3 Hours</td>
+                        <td>Hall B</td>
+                        <td>100</td>
+                    </tr>
+                    <tr>
+                        <td>EX003</td>
+                        <td>Java Programming</td>
+                        <td>2025-07-05</td>
+                        <td>2:00 PM</td>
+                        <td>3 Hours</td>
+                        <td>Lab A</td>
+                        <td>100</td>
+                    </tr>
+                    <tr>
+                        <td>EX004</td>
+                        <td>Web App Development</td>
+                        <td>2025-07-08</td>
+                        <td>10:00 AM</td>
+                        <td>3 Hours</td>
+                        <td>Lab B</td>
+                        <td>100</td>
+                    </tr>
+                    <tr>
+                        <td>EX005</td>
+                        <td>Cloud Computing</td>
+                        <td>2025-07-10</td>
+                        <td>2:00 PM</td>
+                        <td>3 Hours</td>
+                        <td>Hall C</td>
+                        <td>100</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</body>
+</html>

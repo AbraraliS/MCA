@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Data Tables</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+        .container {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+        h1, h2 {
+            text-align: center;
+            color: #2c3e50;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+        th {
+            background: linear-gradient(45deg, #3498db, #2980b9);
+            color: white;
+            padding: 15px;
+            text-align: left;
+            font-weight: bold;
+        }
+        td {
+            padding: 12px 15px;
+            border-bottom: 1px solid #ecf0f1;
+        }
+        tr:nth-child(even) {
+            background-color: #f8f9fa;
+        }
+        tr:hover {
+            background-color: #e3f2fd;
+        }
+        .section {
+            margin: 40px 0;
+        }
+        .table-title {
+            background: #34495e;
+            color: white;
+            padding: 10px;
+            margin: 20px 0 0 0;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>📊 Data Tables Collection</h1>
+        
+        <div class="section">
+            <h2 class="table-title">Employee Information</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Employee ID</th>
+                        <th>Name</th>
+                        <th>Department</th>
+                        <th>Position</th>
+                        <th>Salary</th>
+                        <th>Join Date</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>EMP001</td>
+                        <td>Rajesh Kumar</td>
+                        <td>IT</td>
+                        <td>Software Engineer</td>
+                        <td>₹75,000</td>
+                        <td>2023-01-15</td>
+                    </tr>
+                    <tr>
+                        <td>EMP002</td>
+                        <td>Priya Sharma</td>
+                        <td>HR</td>
+                        <td>HR Manager</td>
+                        <td>₹85,000</td>
+                        <td>2022-08-20</td>
+                    </tr>
+                    <tr>
+                        <td>EMP003</td>
+                        <td>Amit Patel</td>
+                        <td>Finance</td>
+                        <td>Accountant</td>
+                        <td>₹65,000</td>
+                        <td>2023-03-10</td>
+                    </tr>
+                    <tr>
+                        <td>EMP004</td>
+                        <td>Sneha Reddy</td>
+                        <td>IT</td>
+                        <td>System Analyst</td>
+                        <td>₹80,000</td>
+                        <td>2022-11-05</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="section">
+            <h2 class="table-title">Product Inventory</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Product ID</th>
+                        <th>Product Name</th>
+                        <th>Category</th>
+                        <th>Price</th>
+                        <th>Stock Quantity</th>
+                        <th>Supplier</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>PRD001</td>
+                        <td>Laptop Dell Inspiron</td>
+                        <td>Electronics</td>
+                        <td>₹55,000</td>
+                        <td>25</td>
+                        <td>Dell India</td>
+                    </tr>
+                    <tr>
+                        <td>PRD002</td>
+                        <td>Wireless Mouse</td>
+                        <td>Accessories</td>
+                        <td>₹1,200</td>
+                        <td>150</td>
+                        <td>Logitech</td>
+                    </tr>
+                    <tr>
+                        <td>PRD003</td>
+                        <td>Office Chair</td>
+                        <td>Furniture</td>
+                        <td>₹8,500</td>
+                        <td>40</td>
+                        <td>Godrej</td>
+                    </tr>
+                    <tr>
+                        <td>PRD004</td>
+                        <td>Smartphone Samsung</td>
+                        <td>Electronics</td>
+                        <td>₹25,000</td>
+                        <td>60</td>
+                        <td>Samsung India</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="section">
+            <h2 class="table-title">Course Schedule</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Course Code</th>
+                        <th>Course Name</th>
+                        <th>Instructor</th>
+                        <th>Time</th>
+                        <th>Room</th>
+                        <th>Credits</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>CS101</td>
+                        <td>Programming Fundamentals</td>
+                        <td>Dr. Rajesh Kumar</td>
+                        <td>Mon, Wed 10:00-11:30</td>
+                        <td>Lab-A</td>
+                        <td>4</td>
+                    </tr>
+                    <tr>
+                        <td>CS201</td>
+                        <td>Data Structures</td>
+                        <td>Prof. Priya Sharma</td>
+                        <td>Tue, Thu 14:00-15:30</td>
+                        <td>Room-201</td>
+                        <td>4</td>
+                    </tr>
+                    <tr>
+                        <td>CS301</td>
+                        <td>Database Management</td>
+                        <td>Dr. Amit Patel</td>
+                        <td>Fri 09:00-12:00</td>
+                        <td>Lab-B</td>
+                        <td>3</td>
+                    </tr>
+                    <tr>
+                        <td>CS401</td>
+                        <td>Web Development</td>
+                        <td>Ms. Sneha Reddy</td>
+                        <td>Mon, Wed 14:00-15:30</td>
+                        <td>Lab-C</td>
+                        <td>4</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</body>
+</html>

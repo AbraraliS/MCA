@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Digital Restaurant Menu</title>
+    <style>
+        body {
+            font-family: 'Georgia', serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: #333;
+        }
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            background: white;
+            min-height: 100vh;
+        }
+        header {
+            background: #2c3e50;
+            color: white;
+            text-align: center;
+            padding: 2rem;
+        }
+        .menu-section {
+            padding: 2rem;
+        }
+        .section-title {
+            color: #2c3e50;
+            border-bottom: 3px solid #e74c3c;
+            padding-bottom: 10px;
+            margin-bottom: 30px;
+        }
+        .menu-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            padding: 15px;
+            border-radius: 10px;
+            background: #f8f9fa;
+            transition: transform 0.2s;
+        }
+        .menu-item:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+        .item-info h3 {
+            margin: 0 0 5px 0;
+            color: #2c3e50;
+        }
+        .item-description {
+            color: #666;
+            font-style: italic;
+        }
+        .item-price {
+            font-size: 20px;
+            font-weight: bold;
+            color: #e74c3c;
+        }
+        .category {
+            background: #ecf0f1;
+            margin: 20px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🍽️ Delicious Bites Restaurant</h1>
+            <p>Authentic Flavors, Fresh Ingredients</p>
+        </header>
+
+        <div class="menu-section category">
+            <h2 class="section-title">🥗 Appetizers</h2>
+            
+            <div class="menu-item">
+                <div class="item-info">
+                    <h3>Caesar Salad</h3>
+                    <p class="item-description">Fresh romaine lettuce, parmesan cheese, croutons</p>
+                </div>
+                <div class="item-price">₹299</div>
+            </div>
+            
+            <div class="menu-item">
+                <div class="item-info">
+                    <h3>Garlic Bread</h3>
+                    <p class="item-description">Toasted bread with garlic butter and herbs</p>
+                </div>
+                <div class="item-price">₹199</div>
+            </div>
+        </div>
+
+        <div class="menu-section category">
+            <h2 class="section-title">🍝 Main Course</h2>
+            
+            <div class="menu-item">
+                <div class="item-info">
+                    <h3>Chicken Biryani</h3>
+                    <p class="item-description">Aromatic basmati rice with tender chicken and spices</p>
+                </div>
+                <div class="item-price">₹449</div>
+            </div>
+            
+            <div class="menu-item">
+                <div class="item-info">
+                    <h3>Paneer Butter Masala</h3>
+                    <p class="item-description">Cottage cheese in rich tomato and butter gravy</p>
+                </div>
+                <div class="item-price">₹349</div>
+            </div>
+            
+            <div class="menu-item">
+                <div class="item-info">
+                    <h3>Grilled Salmon</h3>
+                    <p class="item-description">Fresh salmon with lemon herbs and vegetables</p>
+                </div>
+                <div class="item-price">₹699</div>
+            </div>
+        </div>
+
+        <div class="menu-section category">
+            <h2 class="section-title">🍰 Desserts</h2>
+            
+            <div class="menu-item">
+                <div class="item-info">
+                    <h3>Chocolate Lava Cake</h3>
+                    <p class="item-description">Warm chocolate cake with molten center</p>
+                </div>
+                <div class="item-price">₹249</div>
+            </div>
+            
+            <div class="menu-item">
+                <div class="item-info">
+                    <h3>Gulab Jamun</h3>
+                    <p class="item-description">Traditional Indian sweet in sugar syrup</p>
+                </div>
+                <div class="item-price">₹149</div>
+            </div>
+        </div>
+
+        <div class="menu-section category">
+            <h2 class="section-title">🥤 Beverages</h2>
+            
+            <div class="menu-item">
+                <div class="item-info">
+                    <h3>Fresh Lime Soda</h3>
+                    <p class="item-description">Refreshing lime with soda and mint</p>
+                </div>
+                <div class="item-price">₹99</div>
+            </div>
+            
+            <div class="menu-item">
+                <div class="item-info">
+                    <h3>Masala Chai</h3>
+                    <p class="item-description">Traditional Indian spiced tea</p>
+                </div>
+                <div class="item-price">₹49</div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

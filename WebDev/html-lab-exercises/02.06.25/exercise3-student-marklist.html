@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Marklist</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 20px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+        .container {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+        h1 {
+            text-align: center;
+            color: #2c3e50;
+            margin-bottom: 30px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+        th {
+            background: linear-gradient(45deg, #e74c3c, #c0392b);
+            color: white;
+            padding: 15px;
+            text-align: center;
+            font-weight: bold;
+        }
+        td {
+            padding: 12px 15px;
+            text-align: center;
+            border-bottom: 1px solid #ecf0f1;
+        }
+        tr:nth-child(even) {
+            background-color: #f8f9fa;
+        }
+        tr:hover {
+            background-color: #e3f2fd;
+        }
+        .student-name {
+            text-align: left;
+            font-weight: bold;
+            color: #2c3e50;
+        }
+        .total-column {
+            background: #3498db !important;
+            color: white;
+            font-weight: bold;
+        }
+        .grade-column {
+            font-weight: bold;
+        }
+        .grade-a { color: #27ae60; }
+        .grade-b { color: #f39c12; }
+        .grade-c { color: #e67e22; }
+        .grade-d { color: #e74c3c; }
+        .summary {
+            margin-top: 30px;
+            padding: 20px;
+            background: #ecf0f1;
+            border-radius: 8px;
+        }
+        .summary h3 {
+            color: #2c3e50;
+            margin-bottom: 15px;
+        }
+        .stats {
+            display: flex;
+            justify-content: space-around;
+            margin-top: 20px;
+        }
+        .stat-item {
+            text-align: center;
+            background: #3498db;
+            color: white;
+            padding: 15px;
+            border-radius: 8px;
+            flex: 1;
+            margin: 0 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>📊 Student Marklist - MCA Semester Results</h1>
+        
+        <table>
+            <thead>
+                <tr>
+                    <th>Student Name</th>
+                    <th>ADA</th>
+                    <th>ML</th>
+                    <th>JAVA</th>
+                    <th>WADF</th>
+                    <th>CC</th>
+                    <th>Total</th>
+                    <th>Percentage</th>
+                    <th>Grade</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="student-name">Rahul Sharma</td>
+                    <td>60</td>
+                    <td>78</td>
+                    <td>58</td>
+                    <td>90</td>
+                    <td>78</td>
+                    <td class="total-column">364</td>
+                    <td class="total-column">72.8%</td>
+                    <td class="grade-column grade-b">B</td>
+                </tr>
+                <tr>
+                    <td class="student-name">Priya Patel</td>
+                    <td>45</td>
+                    <td>89</td>
+                    <td>97</td>
+                    <td>67</td>
+                    <td>56</td>
+                    <td class="total-column">354</td>
+                    <td class="total-column">70.8%</td>
+                    <td class="grade-column grade-b">B</td>
+                </tr>
+                <tr>
+                    <td class="student-name">Amit Kumar</td>
+                    <td>90</td>
+                    <td>98</td>
+                    <td>99</td>
+                    <td>78</td>
+                    <td>89</td>
+                    <td class="total-column">454</td>
+                    <td class="total-column">90.8%</td>
+                    <td class="grade-column grade-a">A+</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div class="summary">
+            <h3>Class Performance Summary</h3>
+            <p><strong>Subject Abbreviations:</strong></p>
+            <ul>
+                <li><strong>ADA:</strong> Algorithm Design and Analysis</li>
+                <li><strong>ML:</strong> Machine Learning</li>
+                <li><strong>JAVA:</strong> Java Programming</li>
+                <li><strong>WADF:</strong> Web Application Development Framework</li>
+                <li><strong>CC:</strong> Cloud Computing</li>
+            </ul>
+            
+            <div class="stats">
+                <div class="stat-item">
+                    <div style="font-size: 24px; font-weight: bold;">3</div>
+                    <div>Total Students</div>
+                </div>
+                <div class="stat-item">
+                    <div style="font-size: 24px; font-weight: bold;">78.1%</div>
+                    <div>Class Average</div>
+                </div>
+                <div class="stat-item">
+                    <div style="font-size: 24px; font-weight: bold;">90.8%</div>
+                    <div>Highest Score</div>
+                </div>
+                <div class="stat-item">
+                    <div style="font-size: 24px; font-weight: bold;">100%</div>
+                    <div>Pass Rate</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

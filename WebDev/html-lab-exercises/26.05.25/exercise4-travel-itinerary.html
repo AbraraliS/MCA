@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Travel Itinerary Planner</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            background: white;
+            min-height: 100vh;
+        }
+        header {
+            background: #2c3e50;
+            color: white;
+            text-align: center;
+            padding: 2rem;
+        }
+        .trip-info {
+            background: #3498db;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+        .day-section {
+            padding: 30px;
+            border-bottom: 2px solid #ecf0f1;
+        }
+        .day-header {
+            background: linear-gradient(45deg, #e74c3c, #f39c12);
+            color: white;
+            padding: 15px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+        }
+        .activity {
+            display: flex;
+            align-items: center;
+            margin: 15px 0;
+            padding: 15px;
+            background: #f8f9fa;
+            border-radius: 8px;
+            border-left: 4px solid #3498db;
+        }
+        .time {
+            background: #2c3e50;
+            color: white;
+            padding: 8px 15px;
+            border-radius: 20px;
+            margin-right: 20px;
+            font-weight: bold;
+            min-width: 80px;
+            text-align: center;
+        }
+        .activity-details h3 {
+            margin: 0 0 5px 0;
+            color: #2c3e50;
+        }
+        .activity-details p {
+            margin: 0;
+            color: #666;
+        }
+        .location {
+            color: #e74c3c;
+            font-weight: bold;
+        }
+        .budget-section {
+            background: #27ae60;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+        .budget-item {
+            display: inline-block;
+            margin: 10px 20px;
+            padding: 10px 20px;
+            background: rgba(255,255,255,0.2);
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🌍 Travel Itinerary Planner</h1>
+            <p>Your Perfect Trip to Goa</p>
+        </header>
+
+        <div class="trip-info">
+            <h2>Trip Details</h2>
+            <p><strong>Destination:</strong> Goa, India | <strong>Duration:</strong> 5 Days | <strong>Dates:</strong> March 15-19, 2025</p>
+        </div>
+
+        <div class="day-section">
+            <div class="day-header">
+                <h2>Day 1 - March 15, 2025 (Arrival Day)</h2>
+            </div>
+            
+            <div class="activity">
+                <div class="time">10:00</div>
+                <div class="activity-details">
+                    <h3>Arrival at Goa Airport</h3>
+                    <p class="location">📍 Dabolim Airport</p>
+                    <p>Flight landing and airport pickup</p>
+                </div>
+            </div>
+            
+            <div class="activity">
+                <div class="time">12:00</div>
+                <div class="activity-details">
+                    <h3>Hotel Check-in</h3>
+                    <p class="location">📍 Baga Beach Resort</p>
+                    <p>Check into hotel and freshen up</p>
+                </div>
+            </div>
+            
+            <div class="activity">
+                <div class="time">14:00</div>
+                <div class="activity-details">
+                    <h3>Lunch at Local Restaurant</h3>
+                    <p class="location">📍 Fisherman's Wharf</p>
+                    <p>Traditional Goan seafood cuisine</p>
+                </div>
+            </div>
+            
+            <div class="activity">
+                <div class="time">16:00</div>
+                <div class="activity-details">
+                    <h3>Baga Beach Visit</h3>
+                    <p class="location">📍 Baga Beach</p>
+                    <p>Beach relaxation and water sports</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="day-section">
+            <div class="day-header">
+                <h2>Day 2 - March 16, 2025 (North Goa Exploration)</h2>
+            </div>
+            
+            <div class="activity">
+                <div class="time">09:00</div>
+                <div class="activity-details">
+                    <h3>Fort Aguada</h3>
+                    <p class="location">📍 Sinquerim Beach</p>
+                    <p>Historic Portuguese fort and lighthouse</p>
+                </div>
+            </div>
+            
+            <div class="activity">
+                <div class="time">11:30</div>
+                <div class="activity-details">
+                    <h3>Calangute Beach</h3>
+                    <p class="location">📍 Calangute</p>
+                    <p>Queen of beaches - shopping and beach activities</p>
+                </div>
+            </div>
+            
+            <div class="activity">
+                <div class="time">14:00</div>
+                <div class="activity-details">
+                    <h3>Lunch Break</h3>
+                    <p class="location">📍 Beach Shack</p>
+                    <p>Fresh seafood and Goan specialties</p>
+                </div>
+            </div>
+            
+            <div class="activity">
+                <div class="time">16:00</div>
+                <div class="activity-details">
+                    <h3>Anjuna Beach & Flea Market</h3>
+                    <p class="location">📍 Anjuna</p>
+                    <p>Shopping for souvenirs and beach time</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="day-section">
+            <div class="day-header">
+                <h2>Day 3 - March 17, 2025 (South Goa & Culture)</h2>
+            </div>
+            
+            <div class="activity">
+                <div class="time">08:00</div>
+                <div class="activity-details">
+                    <h3>Old Goa Churches</h3>
+                    <p class="location">📍 Old Goa</p>
+                    <p>Basilica of Bom Jesus and Se Cathedral</p>
+                </div>
+            </div>
+            
+            <div class="activity">
+                <div class="time">12:00</div>
+                <div class="activity-details">
+                    <h3>Spice Plantation Tour</h3>
+                    <p class="location">📍 Ponda</p>
+                    <p>Traditional spice garden with lunch</p>
+                </div>
+            </div>
+            
+            <div class="activity">
+                <div class="time">16:00</div>
+                <div class="activity-details">
+                    <h3>Colva Beach</h3>
+                    <p class="location">📍 South Goa</p>
+                    <p>Peaceful beach and sunset viewing</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="budget-section">
+            <h2>💰 Estimated Budget</h2>
+            <div class="budget-item">
+                <strong>Accommodation</strong><br>₹8,000
+            </div>
+            <div class="budget-item">
+                <strong>Food & Dining</strong><br>₹6,000
+            </div>
+            <div class="budget-item">
+                <strong>Transportation</strong><br>₹4,000
+            </div>
+            <div class="budget-item">
+                <strong>Activities</strong><br>₹3,000
+            </div>
+            <div class="budget-item">
+                <strong>Total Budget</strong><br>₹21,000
+            </div>
+        </div>
+    </div>
+</body>
+</html>

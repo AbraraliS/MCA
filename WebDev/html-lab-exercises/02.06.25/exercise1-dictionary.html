@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Computer Science Dictionary</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 20px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+        .container {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+        h1 {
+            text-align: center;
+            color: #2c3e50;
+            margin-bottom: 30px;
+        }
+        .dictionary-entry {
+            margin: 20px 0;
+            padding: 20px;
+            background: #f8f9fa;
+            border-left: 5px solid #3498db;
+            border-radius: 8px;
+        }
+        .term {
+            font-size: 20px;
+            font-weight: bold;
+            color: #2c3e50;
+            margin-bottom: 10px;
+        }
+        .definition {
+            color: #555;
+            line-height: 1.6;
+        }
+        .search-box {
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 20px;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            font-size: 16px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>📚 Computer Science Dictionary</h1>
+        
+        <input type="text" class="search-box" placeholder="Search for a term..." onkeyup="searchTerms()">
+        
+        <div id="dictionary-list">
+            <div class="dictionary-entry">
+                <div class="term">Algorithm</div>
+                <div class="definition">A step-by-step procedure or formula for solving a problem or completing a task in computing.</div>
+            </div>
+            
+            <div class="dictionary-entry">
+                <div class="term">API (Application Programming Interface)</div>
+                <div class="definition">A set of protocols, routines, and tools for building software applications that specifies how software components should interact.</div>
+            </div>
+            
+            <div class="dictionary-entry">
+                <div class="term">Database</div>
+                <div class="definition">An organized collection of structured information, or data, typically stored electronically in a computer system.</div>
+            </div>
+            
+            <div class="dictionary-entry">
+                <div class="term">Encryption</div>
+                <div class="definition">The process of converting information or data into a code to prevent unauthorized access.</div>
+            </div>
+            
+            <div class="dictionary-entry">
+                <div class="term">Framework</div>
+                <div class="definition">A platform for developing software applications that provides a foundation on which software developers can build programs.</div>
+            </div>
+            
+            <div class="dictionary-entry">
+                <div class="term">Git</div>
+                <div class="definition">A distributed version control system for tracking changes in source code during software development.</div>
+            </div>
+            
+            <div class="dictionary-entry">
+                <div class="term">HTML (HyperText Markup Language)</div>
+                <div class="definition">The standard markup language for documents designed to be displayed in a web browser.</div>
+            </div>
+            
+            <div class="dictionary-entry">
+                <div class="term">IDE (Integrated Development Environment)</div>
+                <div class="definition">A software application that provides comprehensive facilities to computer programmers for software development.</div>
+            </div>
+            
+            <div class="dictionary-entry">
+                <div class="term">JavaScript</div>
+                <div class="definition">A programming language that enables interactive web pages and is an essential part of web applications.</div>
+            </div>
+            
+            <div class="dictionary-entry">
+                <div class="term">Kernel</div>
+                <div class="definition">The core component of an operating system that manages system resources and communication between hardware and software.</div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function searchTerms() {
+            const searchInput = document.querySelector('.search-box');
+            const filter = searchInput.value.toLowerCase();
+            const entries = document.querySelectorAll('.dictionary-entry');
+            
+            entries.forEach(entry => {
+                const term = entry.querySelector('.term').textContent.toLowerCase();
+                const definition = entry.querySelector('.definition').textContent.toLowerCase();
+                
+                if (term.includes(filter) || definition.includes(filter)) {
+                    entry.style.display = 'block';
+                } else {
+                    entry.style.display = 'none';
+                }
+            });
+        }
+    </script>
+</body>
+</html>
